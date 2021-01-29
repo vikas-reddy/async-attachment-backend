@@ -1,0 +1,13 @@
+HTTP/1.1 200 OK
+X-Powered-By: Express
+Access-Control-Allow-Origin: *
+Content-Disposition: attachment; filename="dummy.png"
+Accept-Ranges: bytes
+Cache-Control: public, max-age=0
+Last-Modified: Wed, 27 Jan 2021 19:22:33 GMT
+ETag: W/"729c-177454c210d"
+Content-Type: image/png
+Content-Length: 29340
+Date: Wed, 27 Jan 2021 21:15:42 GMT
+Connection: keep-alive
+
