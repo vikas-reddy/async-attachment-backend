@@ -20,7 +20,7 @@
         formData.append('attachment', attachmentInput.files[0], attachmentInput.files[0].name);
 
         const response = await fetch(
-          'https://api.den-signoff08.castlighthealth.com/careguide/v1/conversations/a1T2h000000Q6WGEA0',
+          'https://api.den-signoff08.castlighthealth.com/careguide/v1/conversations/a1T2h000000Q6WGEA0/attachments',
           {
             method: 'POST',
             body: formData,
