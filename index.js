@@ -4,16 +4,14 @@ var fs = require('fs');
 var http = require('http');
 var https = require('https');
 var multiparty = require('multiparty');
+var path = require('path');
 
 var app = module.exports = express();
 
 app.use(cors());
 
 app.get('/', function(req, res){
-  res.send('<form method="post" enctype="multipart/form-data">'
-    + '<p>Image: <input type="file" name="image" multiple /></p>'
-    + '<p><input type="submit" value="Upload" /></p>'
-    + '</form>');
+  res.sendFile(path.join(__dirname + '/index.html'));
 });
 
 app.get('/attachment-fetcher', function(req, res) {
@@ -28,13 +26,25 @@ app.get('/attachment-fetcher', function(req, res) {
   `);
 });
 
-app.get('/get-attachment/:attachmentType', function(req, res){
-  switch (req.params.attachmentType) {
-    case 'image':
-      res.download(`${__dirname}/static-files/dummy.png`);
+app.get('/get-attachment/:extension', function(req, res){
+  switch (req.params.extension) {
+    case 'jpeg':
+      res.download(`${__dirname}/static-files/file-sample.jpeg`);
+      break;
+    case 'png':
+      res.download(`${__dirname}/static-files/file-sample.png`);
       break;
     case 'pdf':
-      res.download(`${__dirname}/static-files/dummy.pdf`);
+      res.download(`${__dirname}/static-files/file-sample.pdf`);
+      break;
+    case 'doc':
+      res.download(`${__dirname}/static-files/file-sample.doc`);
+      break;
+    case 'docx':
+      res.download(`${__dirname}/static-files/file-sample.docx`);
+      break;
+    default:
+      res.download(`${__dirname}/static-files/file-sample.pdf`);
       break;
   }
 });
@@ -77,7 +87,8 @@ if (!module.parent) {
 
   http
     .createServer(app)
-    .listen(8090);
+    // .listen(8090);
+    .listen(8888);
 
   /*
   const options = {

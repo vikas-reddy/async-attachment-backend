@@ -1,0 +1,65 @@
+<!html>
+
+<head>
+  <style type="text/css" media="all">
+.api-response {
+  border: 1px solid gray;
+  min-width: 300px;
+  min-height: 100px;
+}
+  </style>
+
+  <script type="text/javascript" charset="utf-8">
+    function addEventHandlers() {
+      document.getElementById('upload-form').addEventListener('submit', async (event) => {
+        event.preventDefault();
+
+        const attachmentInput = document.getElementById('attachment-input');
+
+        const formData = new FormData();
+        formData.append('attachment', attachmentInput.files[0], attachmentInput.files[0].name);
+
+        const response = await fetch(
+          'https://api.den-signoff08.castlighthealth.com/careguide/v1/conversations/a1T2h000000Q6WGEA0',
+          {
+            method: 'POST',
+            body: formData,
+            headers: {
+              '_soa_session_id': '716e7ce5-d2d7-414d-8ab0-f73c980943d7',
+              'X-CSRF-Token': 'qdZFHG5ey0A07ri9njn1lQZNQobxFcX3uXGr7+Z/uEs=',
+              // 'Host': 'localhost:8080',
+            }
+          })
+          .then(response => response.json());
+
+        document.querySelector('.api-response').innerText = JSON.stringify(response);
+        attachmentInput.value = '';
+      });
+    }
+
+    window.addEventListener('load', () => {
+      addEventHandlers();
+    });
+  </script>
+</head>
+
+<body>
+  <h1>Async Attachments Dummy Backend</h1>
+
+  <h2>Upload here</h2>
+  <p>Upload any file attachments here</p>
+  <form
+    id="upload-form"
+    method="post"
+    action="https://api.den-signoff08.castlighthealth.com/careguide/v1/conversations/a1T2h000000Q6WGEA0"
+    enctype="multipart/form-data"
+  >
+    <p>File: <input type="file" name="attachment" id="attachment-input" multiple /></p>
+    <p><input type="submit" value="Upload" /></p>
+  </form>
+
+  <h2>Response here</h2>
+  <div class="api-response">
+  </div>
+</body>
+

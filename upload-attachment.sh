@@ -1,0 +1,17 @@
+curl 'http://localhost:8090/' \
+  -H 'Connection: keep-alive' \
+  -H 'sec-ch-ua: "Chromium";v="88", "Google Chrome";v="88", ";Not A Brand";v="99"' \
+  -H 'DNT: 1' \
+  -H 'sec-ch-ua-mobile: ?0' \
+  -H 'User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.192 Safari/537.36' \
+  -H 'Accept: */*' \
+  -H 'Origin: http://localhost:8090' \
+  -H 'Sec-Fetch-Site: same-origin' \
+  -H 'Sec-Fetch-Mode: cors' \
+  -H 'Sec-Fetch-Dest: empty' \
+  -H 'Referer: http://localhost:8090/' \
+  -H 'Accept-Language: en-US,en;q=0.9,es;q=0.8,ko;q=0.7,te-IN;q=0.6,te;q=0.5' \
+  -H 'Cookie: liveagent_oref=http://localhost:8080/; liveagent_ptid=e4a673cb-e2b8-4c6e-85ea-f9adb93f01f1; optimizelyEndUserId=oeu1603401982092r0.1857758741617621; _ga=GA1.1.1077156134.1603406456; _delighted_web={%22wcBdWyRKWBAjkkPp%22:{%22_delighted_fst%22:{%22t%22:%221602717050032%22}%2C%22_delighted_lst%22:{%22t%22:%221608242391374%22%2C%22m%22:{%22token%22:%22lqlQr3s7Tm0JBcdvRlboVa4Z%22}}%2C%22_delighted_lrt%22:{%22t%22:%221608242395219%22%2C%22m%22:{%22token%22:%22lqlQr3s7Tm0JBcdvRlboVa4Z%22}}}}; liveagent_sid=6f1dda1a-0563-4096-945f-89b93a919537; liveagent_vc=13; NPS_f95cfe66_throttle=1615011135165' \
+	--form 'attachments=@"/Users/vreddy/Desktop/Screen Shot 2021-03-02 at 1.52.30 PM.png"' \
+	--verbose \
+  --compressed
