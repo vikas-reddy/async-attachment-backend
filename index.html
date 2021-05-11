@@ -17,7 +17,7 @@
         const attachmentInput = document.getElementById('attachment-input');
 
         const formData = new FormData();
-        formData.append('attachment', attachmentInput.files[0], attachmentInput.files[0].name);
+        formData.append('attachments', attachmentInput.files[0], attachmentInput.files[0].name);
 
         const response = await fetch(
           'https://api.den-signoff08.castlighthealth.com/careguide/v1/conversations/a1T2h000000Q6WGEA0/attachments',
@@ -25,9 +25,9 @@
             method: 'POST',
             body: formData,
             headers: {
-              '_soa_session_id': '716e7ce5-d2d7-414d-8ab0-f73c980943d7',
-              'X-CSRF-Token': 'qdZFHG5ey0A07ri9njn1lQZNQobxFcX3uXGr7+Z/uEs=',
-              // 'Host': 'localhost:8080',
+              '_soa_session_id': '2e63e51f-74d9-4bef-95af-fff56d70a139',
+              'X-CSRF-Token': 'PTTrEZzlXE+r8GQJR0U8jSCsdTmGD2x6ZACQELbmBA4=',
+              'Expect': '100-continue',
             }
           })
           .then(response => response.json());
